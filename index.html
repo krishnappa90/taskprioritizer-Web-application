@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Prioritizer Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Prioritizer Tool</h1>
+        <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Enter your task here" required>
+            <label>
+                Urgent:
+                <input type="checkbox" id="urgent">
+            </label>
+            <label>
+                Important:
+                <input type="checkbox" id="important">
+            </label>
+            <button class="submit" type="submit">Add Task</button>
+        </form>
+        <div class="matrix">
+            <div class="quadrant" id="doFirst">
+                <h2>Do First</h2>
+                <ul></ul>
+            </div>
+            <div class="quadrant" id="schedule">
+                <h2>Schedule</h2>
+                <ul></ul>
+            </div>
+            <div class="quadrant" id="delegate">
+                <h2>Delegate</h2>
+                <ul></ul>
+            </div>
+            <div class="quadrant" id="eliminate">
+                <h2>Eliminate</h2>
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
+        </script>
+        
+</body>
+</html>
